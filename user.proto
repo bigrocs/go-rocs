@@ -1,0 +1,723 @@
+syntax = "proto3";
+
+option go_package ="./pb";
+
+package pb;
+
+// ------------------------------------ 
+// Messages
+// ------------------------------------ 
+
+//--------------------------------casbinRule--------------------------------
+message CasbinRule {
+  string pType = 1; //pType
+  string v0 = 2; //v0
+  string v1 = 3; //v1
+  string v2 = 4; //v2
+  string v3 = 5; //v3
+  string v4 = 6; //v4
+  string v5 = 7; //v5
+}
+
+message AddCasbinRuleReq {
+  string pType = 1; //pType
+  string v0 = 2; //v0
+  string v1 = 3; //v1
+  string v2 = 4; //v2
+  string v3 = 5; //v3
+  string v4 = 6; //v4
+  string v5 = 7; //v5
+}
+
+message AddCasbinRuleResp {
+}
+
+message UpdateCasbinRuleReq {
+  string pType = 1; //pType
+  string v0 = 2; //v0
+  string v1 = 3; //v1
+  string v2 = 4; //v2
+  string v3 = 5; //v3
+  string v4 = 6; //v4
+  string v5 = 7; //v5
+}
+
+message UpdateCasbinRuleResp {
+}
+
+message DelCasbinRuleReq {
+  int64 id = 1; //id
+}
+
+message DelCasbinRuleResp {
+}
+
+message GetCasbinRuleByIdReq {
+  int64 id = 1; //id
+}
+
+message GetCasbinRuleByIdResp {
+  CasbinRule casbinRule = 1; //casbinRule
+}
+
+message SearchCasbinRuleReq {
+  int64 page = 1; //page
+  int64 pageSize = 2; //pageSize
+  string pType = 3; //pType
+  string v0 = 4; //v0
+  string v1 = 5; //v1
+  string v2 = 6; //v2
+  string v3 = 7; //v3
+  string v4 = 8; //v4
+  string v5 = 9; //v5
+}
+
+message SearchCasbinRuleResp {
+  repeated CasbinRule casbinRule = 1; //casbinRule
+}
+
+//--------------------------------configs--------------------------------
+message Config {
+  string id = 1; //标识ID
+  string name = 2; //配置名称
+  string value = 3; //配置内容
+  int64 createdAt = 4; //createdAt
+  int64 updatedAt = 5; //updatedAt
+}
+
+message AddConfigReq {
+  string name = 1; //配置名称
+  string value = 2; //配置内容
+  int64 createdAt = 3; //createdAt
+  int64 updatedAt = 4; //updatedAt
+}
+
+message AddConfigResp {
+}
+
+message UpdateConfigReq {
+  string id = 1; //标识ID
+  string name = 2; //配置名称
+  string value = 3; //配置内容
+  int64 createdAt = 4; //createdAt
+  int64 updatedAt = 5; //updatedAt
+}
+
+message UpdateConfigResp {
+}
+
+message DelConfigReq {
+  int64 id = 1; //id
+}
+
+message DelConfigResp {
+}
+
+message GetConfigByIdReq {
+  int64 id = 1; //id
+}
+
+message GetConfigByIdResp {
+  Config config = 1; //config
+}
+
+message SearchConfigReq {
+  int64 page = 1; //page
+  int64 pageSize = 2; //pageSize
+  string id = 3; //标识ID
+  string name = 4; //配置名称
+  string value = 5; //配置内容
+  int64 createdAt = 6; //createdAt
+  int64 updatedAt = 7; //updatedAt
+}
+
+message SearchConfigResp {
+  repeated Config config = 1; //config
+}
+
+//--------------------------------frontPermits--------------------------------
+message FrontPermit {
+  int64 id = 1; //id
+  string app = 2; //app
+  string service = 3; //service
+  string method = 4; //method
+  string name = 5; //name
+  string description = 6; //description
+  int64 createdAt = 7; //createdAt
+  int64 updatedAt = 8; //updatedAt
+}
+
+message AddFrontPermitReq {
+  string app = 1; //app
+  string service = 2; //service
+  string method = 3; //method
+  string name = 4; //name
+  string description = 5; //description
+  int64 createdAt = 6; //createdAt
+  int64 updatedAt = 7; //updatedAt
+}
+
+message AddFrontPermitResp {
+}
+
+message UpdateFrontPermitReq {
+  int64 id = 1; //id
+  string app = 2; //app
+  string service = 3; //service
+  string method = 4; //method
+  string name = 5; //name
+  string description = 6; //description
+  int64 createdAt = 7; //createdAt
+  int64 updatedAt = 8; //updatedAt
+}
+
+message UpdateFrontPermitResp {
+}
+
+message DelFrontPermitReq {
+  int64 id = 1; //id
+}
+
+message DelFrontPermitResp {
+}
+
+message GetFrontPermitByIdReq {
+  int64 id = 1; //id
+}
+
+message GetFrontPermitByIdResp {
+  FrontPermit frontPermit = 1; //frontPermit
+}
+
+message SearchFrontPermitReq {
+  int64 page = 1; //page
+  int64 pageSize = 2; //pageSize
+  int64 id = 3; //id
+  string app = 4; //app
+  string service = 5; //service
+  string method = 6; //method
+  string name = 7; //name
+  string description = 8; //description
+  int64 createdAt = 9; //createdAt
+  int64 updatedAt = 10; //updatedAt
+}
+
+message SearchFrontPermitResp {
+  repeated FrontPermit frontPermit = 1; //frontPermit
+}
+
+//--------------------------------logs--------------------------------
+message Log {
+  int64 id = 1; //id
+  string userId = 2; //userId
+  string username = 3; //username
+  string name = 4; //name
+  string service = 5; //service
+  string method = 6; //method
+  string methodName = 7; //methodName
+  string ip = 8; //ip
+  string request = 9; //request
+  int64 createdAt = 10; //createdAt
+}
+
+message AddLogReq {
+  string userId = 1; //userId
+  string username = 2; //username
+  string name = 3; //name
+  string service = 4; //service
+  string method = 5; //method
+  string methodName = 6; //methodName
+  string ip = 7; //ip
+  string request = 8; //request
+  int64 createdAt = 9; //createdAt
+}
+
+message AddLogResp {
+}
+
+message UpdateLogReq {
+  int64 id = 1; //id
+  string userId = 2; //userId
+  string username = 3; //username
+  string name = 4; //name
+  string service = 5; //service
+  string method = 6; //method
+  string methodName = 7; //methodName
+  string ip = 8; //ip
+  string request = 9; //request
+  int64 createdAt = 10; //createdAt
+}
+
+message UpdateLogResp {
+}
+
+message DelLogReq {
+  int64 id = 1; //id
+}
+
+message DelLogResp {
+}
+
+message GetLogByIdReq {
+  int64 id = 1; //id
+}
+
+message GetLogByIdResp {
+  Log log = 1; //log
+}
+
+message SearchLogReq {
+  int64 page = 1; //page
+  int64 pageSize = 2; //pageSize
+  int64 id = 3; //id
+  string userId = 4; //userId
+  string username = 5; //username
+  string name = 6; //name
+  string service = 7; //service
+  string method = 8; //method
+  string methodName = 9; //methodName
+  string ip = 10; //ip
+  string request = 11; //request
+  int64 createdAt = 12; //createdAt
+}
+
+message SearchLogResp {
+  repeated Log log = 1; //log
+}
+
+//--------------------------------orders--------------------------------
+message Order {
+  string id = 1; //订单ID
+  string userId = 2; //用户ID
+  string title = 3; //订单标题
+  string outTradeNo = 4; //商家订单编号
+  int64 totalFee = 5; //订单总金额
+  int64 currentBalance = 6; //当前余额记录[变动后]
+  int64 status = 7; //订单状态 [-1删除、0存款、1提现、2消费、]
+  int64 createdAt = 8; //createdAt
+  int64 updatedAt = 9; //updatedAt
+}
+
+message AddOrderReq {
+  string userId = 1; //用户ID
+  string title = 2; //订单标题
+  string outTradeNo = 3; //商家订单编号
+  int64 totalFee = 4; //订单总金额
+  int64 currentBalance = 5; //当前余额记录[变动后]
+  int64 status = 6; //订单状态 [-1删除、0存款、1提现、2消费、]
+  int64 createdAt = 7; //createdAt
+  int64 updatedAt = 8; //updatedAt
+}
+
+message AddOrderResp {
+}
+
+message UpdateOrderReq {
+  string id = 1; //订单ID
+  string userId = 2; //用户ID
+  string title = 3; //订单标题
+  string outTradeNo = 4; //商家订单编号
+  int64 totalFee = 5; //订单总金额
+  int64 currentBalance = 6; //当前余额记录[变动后]
+  int64 status = 7; //订单状态 [-1删除、0存款、1提现、2消费、]
+  int64 createdAt = 8; //createdAt
+  int64 updatedAt = 9; //updatedAt
+}
+
+message UpdateOrderResp {
+}
+
+message DelOrderReq {
+  int64 id = 1; //id
+}
+
+message DelOrderResp {
+}
+
+message GetOrderByIdReq {
+  int64 id = 1; //id
+}
+
+message GetOrderByIdResp {
+  Order order = 1; //order
+}
+
+message SearchOrderReq {
+  int64 page = 1; //page
+  int64 pageSize = 2; //pageSize
+  string id = 3; //订单ID
+  string userId = 4; //用户ID
+  string title = 5; //订单标题
+  string outTradeNo = 6; //商家订单编号
+  int64 totalFee = 7; //订单总金额
+  int64 currentBalance = 8; //当前余额记录[变动后]
+  int64 status = 9; //订单状态 [-1删除、0存款、1提现、2消费、]
+  int64 createdAt = 10; //createdAt
+  int64 updatedAt = 11; //updatedAt
+}
+
+message SearchOrderResp {
+  repeated Order order = 1; //order
+}
+
+//--------------------------------permissions--------------------------------
+message Permission {
+  int64 id = 1; //id
+  string service = 2; //service
+  string method = 3; //method
+  string name = 4; //name
+  string description = 5; //description
+  int64 auth = 6; //auth
+  int64 policy = 7; //policy
+  int64 log = 8; //日志
+  int64 createdAt = 9; //createdAt
+  int64 updatedAt = 10; //updatedAt
+}
+
+message AddPermissionReq {
+  string service = 1; //service
+  string method = 2; //method
+  string name = 3; //name
+  string description = 4; //description
+  int64 auth = 5; //auth
+  int64 policy = 6; //policy
+  int64 log = 7; //日志
+  int64 createdAt = 8; //createdAt
+  int64 updatedAt = 9; //updatedAt
+}
+
+message AddPermissionResp {
+}
+
+message UpdatePermissionReq {
+  int64 id = 1; //id
+  string service = 2; //service
+  string method = 3; //method
+  string name = 4; //name
+  string description = 5; //description
+  int64 auth = 6; //auth
+  int64 policy = 7; //policy
+  int64 log = 8; //日志
+  int64 createdAt = 9; //createdAt
+  int64 updatedAt = 10; //updatedAt
+}
+
+message UpdatePermissionResp {
+}
+
+message DelPermissionReq {
+  int64 id = 1; //id
+}
+
+message DelPermissionResp {
+}
+
+message GetPermissionByIdReq {
+  int64 id = 1; //id
+}
+
+message GetPermissionByIdResp {
+  Permission permission = 1; //permission
+}
+
+message SearchPermissionReq {
+  int64 page = 1; //page
+  int64 pageSize = 2; //pageSize
+  int64 id = 3; //id
+  string service = 4; //service
+  string method = 5; //method
+  string name = 6; //name
+  string description = 7; //description
+  int64 auth = 8; //auth
+  int64 policy = 9; //policy
+  int64 log = 10; //日志
+  int64 createdAt = 11; //createdAt
+  int64 updatedAt = 12; //updatedAt
+}
+
+message SearchPermissionResp {
+  repeated Permission permission = 1; //permission
+}
+
+//--------------------------------roles--------------------------------
+message Role {
+  int64 id = 1; //id
+  string label = 2; //label
+  string name = 3; //name
+  string description = 4; //description
+  int64 createdAt = 5; //createdAt
+  int64 updatedAt = 6; //updatedAt
+}
+
+message AddRoleReq {
+  string label = 1; //label
+  string name = 2; //name
+  string description = 3; //description
+  int64 createdAt = 4; //createdAt
+  int64 updatedAt = 5; //updatedAt
+}
+
+message AddRoleResp {
+}
+
+message UpdateRoleReq {
+  int64 id = 1; //id
+  string label = 2; //label
+  string name = 3; //name
+  string description = 4; //description
+  int64 createdAt = 5; //createdAt
+  int64 updatedAt = 6; //updatedAt
+}
+
+message UpdateRoleResp {
+}
+
+message DelRoleReq {
+  int64 id = 1; //id
+}
+
+message DelRoleResp {
+}
+
+message GetRoleByIdReq {
+  int64 id = 1; //id
+}
+
+message GetRoleByIdResp {
+  Role role = 1; //role
+}
+
+message SearchRoleReq {
+  int64 page = 1; //page
+  int64 pageSize = 2; //pageSize
+  int64 id = 3; //id
+  string label = 4; //label
+  string name = 5; //name
+  string description = 6; //description
+  int64 createdAt = 7; //createdAt
+  int64 updatedAt = 8; //updatedAt
+}
+
+message SearchRoleResp {
+  repeated Role role = 1; //role
+}
+
+//--------------------------------secretKeys--------------------------------
+message SecretKey {
+  string userId = 1; //用户ID
+  string appId = 2; //APPID
+  string publicKey = 3; //系统公钥
+  string privateKey = 4; //系统私钥
+  string clientPublicKey = 5; //客户端公钥
+  string signType = 6; //Sign样式
+  int64 createdAt = 7; //createdAt
+  int64 updatedAt = 8; //updatedAt
+}
+
+message AddSecretKeyReq {
+  string userId = 1; //用户ID
+  string appId = 2; //APPID
+  string publicKey = 3; //系统公钥
+  string privateKey = 4; //系统私钥
+  string clientPublicKey = 5; //客户端公钥
+  string signType = 6; //Sign样式
+  int64 createdAt = 7; //createdAt
+  int64 updatedAt = 8; //updatedAt
+}
+
+message AddSecretKeyResp {
+}
+
+message UpdateSecretKeyReq {
+  string userId = 1; //用户ID
+  string appId = 2; //APPID
+  string publicKey = 3; //系统公钥
+  string privateKey = 4; //系统私钥
+  string clientPublicKey = 5; //客户端公钥
+  string signType = 6; //Sign样式
+  int64 createdAt = 7; //createdAt
+  int64 updatedAt = 8; //updatedAt
+}
+
+message UpdateSecretKeyResp {
+}
+
+message DelSecretKeyReq {
+  int64 id = 1; //id
+}
+
+message DelSecretKeyResp {
+}
+
+message GetSecretKeyByIdReq {
+  int64 id = 1; //id
+}
+
+message GetSecretKeyByIdResp {
+  SecretKey secretKey = 1; //secretKey
+}
+
+message SearchSecretKeyReq {
+  int64 page = 1; //page
+  int64 pageSize = 2; //pageSize
+  string userId = 3; //用户ID
+  string appId = 4; //APPID
+  string publicKey = 5; //系统公钥
+  string privateKey = 6; //系统私钥
+  string clientPublicKey = 7; //客户端公钥
+  string signType = 8; //Sign样式
+  int64 createdAt = 9; //createdAt
+  int64 updatedAt = 10; //updatedAt
+}
+
+message SearchSecretKeyResp {
+  repeated SecretKey secretKey = 1; //secretKey
+}
+
+//--------------------------------users--------------------------------
+message User {
+  string id = 1; //id
+  string username = 2; //username
+  string mobile = 3; //mobile
+  string email = 4; //email
+  string password = 5; //password
+  string name = 6; //name
+  string avatar = 7; //avatar
+  string origin = 8; //origin
+  int64 balance = 9; //balance
+  int64 createdAt = 10; //createdAt
+  int64 updatedAt = 11; //updatedAt
+}
+
+message AddUserReq {
+  string username = 1; //username
+  string mobile = 2; //mobile
+  string email = 3; //email
+  string password = 4; //password
+  string name = 5; //name
+  string avatar = 6; //avatar
+  string origin = 7; //origin
+  int64 balance = 8; //balance
+  int64 createdAt = 9; //createdAt
+  int64 updatedAt = 10; //updatedAt
+}
+
+message AddUserResp {
+}
+
+message UpdateUserReq {
+  string id = 1; //id
+  string username = 2; //username
+  string mobile = 3; //mobile
+  string email = 4; //email
+  string password = 5; //password
+  string name = 6; //name
+  string avatar = 7; //avatar
+  string origin = 8; //origin
+  int64 balance = 9; //balance
+  int64 createdAt = 10; //createdAt
+  int64 updatedAt = 11; //updatedAt
+}
+
+message UpdateUserResp {
+}
+
+message DelUserReq {
+  int64 id = 1; //id
+}
+
+message DelUserResp {
+}
+
+message GetUserByIdReq {
+  string id = 1; //id
+}
+
+message GetUserByIdResp {
+  User user = 1; //user
+}
+
+message SearchUserReq {
+  int64 page = 1; //page
+  int64 pageSize = 2; //pageSize
+  string id = 3; //id
+  string username = 4; //username
+  string mobile = 5; //mobile
+  string email = 6; //email
+  string password = 7; //password
+  string name = 8; //name
+  string avatar = 9; //avatar
+  string origin = 10; //origin
+  int64 balance = 11; //balance
+  int64 createdAt = 12; //createdAt
+  int64 updatedAt = 13; //updatedAt
+}
+
+message SearchUserResp {
+  repeated User user = 1; //user
+}
+
+
+
+// ------------------------------------ 
+// Rpc Func
+// ------------------------------------ 
+
+service user{ 
+
+	 //-----------------------casbinRule----------------------- 
+	 rpc AddCasbinRule(AddCasbinRuleReq) returns (AddCasbinRuleResp); 
+	 rpc UpdateCasbinRule(UpdateCasbinRuleReq) returns (UpdateCasbinRuleResp); 
+	 rpc DelCasbinRule(DelCasbinRuleReq) returns (DelCasbinRuleResp); 
+	 rpc GetCasbinRuleById(GetCasbinRuleByIdReq) returns (GetCasbinRuleByIdResp); 
+	 rpc SearchCasbinRule(SearchCasbinRuleReq) returns (SearchCasbinRuleResp); 
+	 //-----------------------configs----------------------- 
+	 rpc AddConfig(AddConfigReq) returns (AddConfigResp); 
+	 rpc UpdateConfig(UpdateConfigReq) returns (UpdateConfigResp); 
+	 rpc DelConfig(DelConfigReq) returns (DelConfigResp); 
+	 rpc GetConfigById(GetConfigByIdReq) returns (GetConfigByIdResp); 
+	 rpc SearchConfig(SearchConfigReq) returns (SearchConfigResp); 
+	 //-----------------------frontPermits----------------------- 
+	 rpc AddFrontPermit(AddFrontPermitReq) returns (AddFrontPermitResp); 
+	 rpc UpdateFrontPermit(UpdateFrontPermitReq) returns (UpdateFrontPermitResp); 
+	 rpc DelFrontPermit(DelFrontPermitReq) returns (DelFrontPermitResp); 
+	 rpc GetFrontPermitById(GetFrontPermitByIdReq) returns (GetFrontPermitByIdResp); 
+	 rpc SearchFrontPermit(SearchFrontPermitReq) returns (SearchFrontPermitResp); 
+	 //-----------------------logs----------------------- 
+	 rpc AddLog(AddLogReq) returns (AddLogResp); 
+	 rpc UpdateLog(UpdateLogReq) returns (UpdateLogResp); 
+	 rpc DelLog(DelLogReq) returns (DelLogResp); 
+	 rpc GetLogById(GetLogByIdReq) returns (GetLogByIdResp); 
+	 rpc SearchLog(SearchLogReq) returns (SearchLogResp); 
+	 //-----------------------orders----------------------- 
+	 rpc AddOrder(AddOrderReq) returns (AddOrderResp); 
+	 rpc UpdateOrder(UpdateOrderReq) returns (UpdateOrderResp); 
+	 rpc DelOrder(DelOrderReq) returns (DelOrderResp); 
+	 rpc GetOrderById(GetOrderByIdReq) returns (GetOrderByIdResp); 
+	 rpc SearchOrder(SearchOrderReq) returns (SearchOrderResp); 
+	 //-----------------------permissions----------------------- 
+	 rpc AddPermission(AddPermissionReq) returns (AddPermissionResp); 
+	 rpc UpdatePermission(UpdatePermissionReq) returns (UpdatePermissionResp); 
+	 rpc DelPermission(DelPermissionReq) returns (DelPermissionResp); 
+	 rpc GetPermissionById(GetPermissionByIdReq) returns (GetPermissionByIdResp); 
+	 rpc SearchPermission(SearchPermissionReq) returns (SearchPermissionResp); 
+	 //-----------------------roles----------------------- 
+	 rpc AddRole(AddRoleReq) returns (AddRoleResp); 
+	 rpc UpdateRole(UpdateRoleReq) returns (UpdateRoleResp); 
+	 rpc DelRole(DelRoleReq) returns (DelRoleResp); 
+	 rpc GetRoleById(GetRoleByIdReq) returns (GetRoleByIdResp); 
+	 rpc SearchRole(SearchRoleReq) returns (SearchRoleResp); 
+	 //-----------------------secretKeys----------------------- 
+	 rpc AddSecretKey(AddSecretKeyReq) returns (AddSecretKeyResp); 
+	 rpc UpdateSecretKey(UpdateSecretKeyReq) returns (UpdateSecretKeyResp); 
+	 rpc DelSecretKey(DelSecretKeyReq) returns (DelSecretKeyResp); 
+	 rpc GetSecretKeyById(GetSecretKeyByIdReq) returns (GetSecretKeyByIdResp); 
+	 rpc SearchSecretKey(SearchSecretKeyReq) returns (SearchSecretKeyResp); 
+	 //-----------------------users----------------------- 
+	 rpc AddUser(AddUserReq) returns (AddUserResp); 
+	 rpc UpdateUser(UpdateUserReq) returns (UpdateUserResp); 
+	 rpc DelUser(DelUserReq) returns (DelUserResp); 
+	 rpc GetUserById(GetUserByIdReq) returns (GetUserByIdResp); 
+	 rpc SearchUser(SearchUserReq) returns (SearchUserResp); 
+
+}

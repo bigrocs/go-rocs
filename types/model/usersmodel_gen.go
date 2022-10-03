@@ -117,7 +117,7 @@ func (m *defaultUsersModel) FindOneByUsername(ctx context.Context, username stri
 func (m *defaultUsersModel) Insert(ctx context.Context, data *Users) (sql.Result, error) {
 	userUsersIdKey := fmt.Sprintf("%s%v", cacheUserUsersIdPrefix, data.Id)
 	userUsersUsernameKey := fmt.Sprintf("%s%v", cacheUserUsersUsernamePrefix, data.Username)
-	ret, err := m. (ctx, func(ctx context.Context, conn sqlx.SqlConn) (result sql.Result, err error) {
+	ret, err := m.ExecCtx(ctx, func(ctx context.Context, conn sqlx.SqlConn) (result sql.Result, err error) {
 		query := fmt.Sprintf("insert into %s (%s) values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)", m.table, usersRowsExpectAutoSet)
 		return conn.ExecCtx(ctx, query, data.Id, data.Username, data.Mobile, data.Email, data.Password, data.Name, data.Avatar, data.Origin, data.Balance, data.CreatedAt, data.UpdatedAt)
 	}, userUsersIdKey, userUsersUsernameKey)

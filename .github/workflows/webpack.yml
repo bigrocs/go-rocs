@@ -30,8 +30,8 @@ jobs:
       -
         name: echo github.repository
         run: | 
-          TAGS=$(echo "${GITHUB_REF}" | sed -e "s/refs\/tags\///g")
-          if [ $TAGS == "refs/heads/main" ]; then
+          TAGS=${ GITHUB_REF_NAME }
+          if [ $TAGS == "main" ]; then
               TAGS="latest"
           fi
           echo $TAGS
@@ -39,6 +39,7 @@ jobs:
       -
         name: echo github.TAGS
         run: | 
+          echo ${ GITHUB_REF_NAME }
           set
       # -
       #   name: Login to ${{ env.REGISTRY }}

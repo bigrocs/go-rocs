@@ -34,7 +34,7 @@ jobs:
       -
         name: echo github.repository
         run: | 
-          echo ${{ github }}
+          echo ${{ github.tag }}
           echo ${{ env.REGISTRY }}
           echo $REGISTRY1
       # -

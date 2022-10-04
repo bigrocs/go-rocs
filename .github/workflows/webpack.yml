@@ -41,6 +41,7 @@ jobs:
         name: echo github.TAGS
         run: | 
           echo ${ env.TAGS }
+          set
       # -
       #   name: Login to ${{ env.REGISTRY }}
       #   uses: docker/login-action@v2

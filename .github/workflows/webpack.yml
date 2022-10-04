@@ -40,4 +40,4 @@ jobs:
         with:
           context: .
           push: true
-          tags: ${{ env.REGISTRY }}/bigrocs/go-rocs:${{ GITHUB_REF_NAME }}
+          tags: ${{ env.REGISTRY }}/bigrocs/go-rocs:${ GITHUB_REF_NAME }

@@ -31,7 +31,9 @@ jobs:
         name: echo github.repository
         run: | 
           TAGS=$(echo "${GITHUB_REF}" | sed -e "s/refs\/tags\///g")
-          echo ${GITHUB_REF}
+          if [ $TAGS == "refs/heads/main"]; then
+              TAGS="latest"
+          fi
           echo $TAGS
       -
         name: echo github.TAGS

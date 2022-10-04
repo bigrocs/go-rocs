@@ -25,6 +25,7 @@ jobs:
         uses: elgohr/Publish-Docker-Github-Action@v4
         with:
           name: bigrocs/go-rocs
+          dockerfile: ./Dockerfile
           username: ${{ secrets.DOCKER_USERNAME }}
           password: ${{ secrets.DOCKER_PASSWORD }}
           registry: ${{ env.REGISTRY }}

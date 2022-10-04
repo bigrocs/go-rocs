@@ -31,6 +31,7 @@ jobs:
         name: echo github.repository
         run: | 
           echo "${GITHUB_REF}" | sed -e "s/refs\/tags\///g"
+           echo ${GITHUB_REF}
           echo ${{ env.REGISTRY }}
           echo ${{GITHUB_REF}}
       # -

@@ -35,7 +35,8 @@ jobs:
         name: echo github.repository
         run: | 
           echo ${{ github }}
-          echo ${{ env.REGISTRY1 }}
+          echo ${{ env.REGISTRY }}
+          echo $REGISTRY1
       # -
       #   name: Login to ${{ env.REGISTRY }}
       #   uses: docker/login-action@v2

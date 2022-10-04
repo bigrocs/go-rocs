@@ -18,41 +18,26 @@ jobs:
     outputs:
       registry: registry.cn-hongkong.aliyuncs.com
     steps:
-      # -
-      #   name: Checkout
-      #   uses: actions/checkout@v3
-      # -
-      #   name: Set up QEMU
-      #   uses: docker/setup-qemu-action@v2
-      # -
-      #   name: Set up Docker Buildx
-      #   uses: docker/setup-buildx-action@v2
       -
-        name: echo github.repository
-        run: | 
-          TAGS=$GITHUB_REF_NAME
-          if [ $TAGS == "main" ]; then
-              TAGS="latest"
-          fi
-          echo $TAGS
-          export NAMESPACE=133553
-          echo $NAMESPACE
+        name: Checkout
+        uses: actions/checkout@v3
       -
-        name: echo github.TAGS
-        run: | 
-          echo $GITHUB_REF_NAME
-          echo $NAMESPACE
-      # -
-      #   name: Login to ${{ env.REGISTRY }}
-      #   uses: docker/login-action@v2
-      #   with:
-      #     registry: ${{ env.REGISTRY }}
-      #     username: ${{ secrets.DOCKER_USERNAME }}
-      #     password: ${{ secrets.DOCKER_PASSWORD }}
-      # -
-      #   name: Build and push
-      #   uses: docker/build-push-action@v3
-      #   with:
-      #     context: .
-      #     push: true
-      #     tags: ${{ env.REGISTRY }}/bigrocs/go-rocs:latest
+        name: Set up QEMU
+        uses: docker/setup-qemu-action@v2
+      -
+        name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v2
+      -
+        name: Login to ${{ env.REGISTRY }}
+        uses: docker/login-action@v2
+        with:
+          registry: ${{ env.REGISTRY }}
+          username: ${{ secrets.DOCKER_USERNAME }}
+          password: ${{ secrets.DOCKER_PASSWORD }}
+      -
+        name: Build and push
+        uses: docker/build-push-action@v3
+        with:
+          context: .
+          push: true
+          tags: ${{ env.REGISTRY }}/bigrocs/go-rocs:${{GITHUB_REF_NAME}}

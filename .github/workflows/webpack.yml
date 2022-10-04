@@ -11,14 +11,13 @@ on:
       - v2.*
       - v3.*
 env:
-  # Use docker.io for Docker Hub if empty
+  NAME: user-rpc
+  NAMESPACE: bigrocs
   REGISTRY: registry.cn-hongkong.aliyuncs.com
   ACCES_STOKEN: ${{ secrets.ACCES_STOKEN }}
 jobs:
   build:
     runs-on: ubuntu-latest
-    outputs:
-      registry: registry.cn-hongkong.aliyuncs.com
     steps:
       -
         name: Checkout
@@ -27,7 +26,7 @@ jobs:
         name: Publish to Registry
         uses: elgohr/Publish-Docker-Github-Action@v4
         with:
-          name: bigrocs/go-rocs
+          name: ${{ env.NAMESPACE }}/${{ env.ACCES_STOKEN }}
           dockerfile: ./Dockerfile
           username: ${{ secrets.DOCKER_USERNAME }}
           password: ${{ secrets.DOCKER_PASSWORD }}

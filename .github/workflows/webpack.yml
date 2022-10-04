@@ -17,7 +17,7 @@ jobs:
         name: Checkout
         uses: actions/checkout@v3
         env:
-          registry: registry.cn-hongkong.aliyuncs.com
+          REGISTRY_URL: registry.cn-hongkong.aliyuncs.com
       -
         name: Set up QEMU
         uses: docker/setup-qemu-action@v2
@@ -28,7 +28,7 @@ jobs:
         name: Login to DockerHub
         uses: docker/login-action@v2
         with:
-          registry: ${{ registry }}
+          registry: REGISTRY_URL
           username: ${{ secrets.DOCKER_USERNAME }}
           password: ${{ secrets.DOCKER_PASSWORD }}
       -
@@ -37,4 +37,4 @@ jobs:
         with:
           context: .
           push: true
-          tags: ${{ registry }}/bigrocs/go-rocs:latest
+          tags: REGISTRY_URL/bigrocs/go-rocs:latest

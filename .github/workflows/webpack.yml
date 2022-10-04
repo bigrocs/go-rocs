@@ -30,9 +30,13 @@ jobs:
       -
         name: echo github.repository
         run: | 
-          echo "${GITHUB_REF}" | sed -e "s/refs\/tags\///g | sed -e "s/refs\/heads\///g"
+          TAGS=$(echo "${GITHUB_REF}" | sed -e "s/refs\/tags\///g")
           echo ${GITHUB_REF}
-          echo ${{ env.REGISTRY }}
+          echo TAGS
+      -
+        name: echo github.TAGS
+        run: | 
+          echo TAGS
       # -
       #   name: Login to ${{ env.REGISTRY }}
       #   uses: docker/login-action@v2

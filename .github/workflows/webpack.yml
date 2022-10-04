@@ -24,13 +24,13 @@ jobs:
         uses: docker/setup-buildx-action@v2
       -
         name: Set Docker Registry
-        run: |
-          registry=registry.cn-hongkong.aliyuncs.com
+        env:
+          REGISTRY: "registry.cn-hongkong.aliyuncs.com"
       -
         name: Login to DockerHub
         uses: docker/login-action@v2
         with:
-          registry: ${{ registry }}
+          registry: REGISTRY
           username: ${{ secrets.DOCKER_USERNAME }}
           password: ${{ secrets.DOCKER_PASSWORD }}
       -
@@ -39,4 +39,4 @@ jobs:
         with:
           context: .
           push: true
-          tags: ${{ registry }}/bigrocs/go-rocs:latest
+          tags: REGISTRY/bigrocs/go-rocs:latest

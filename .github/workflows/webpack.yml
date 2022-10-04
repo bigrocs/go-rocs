@@ -35,12 +35,13 @@ jobs:
               TAGS="latest"
           fi
           echo $TAGS
-          set
+          export NAMESPACE=133553
+          echo $NAMESPACE
       -
         name: echo github.TAGS
         run: | 
           echo $GITHUB_REF_NAME
-          set
+          echo $NAMESPACE
       # -
       #   name: Login to ${{ env.REGISTRY }}
       #   uses: docker/login-action@v2

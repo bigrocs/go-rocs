@@ -3,7 +3,7 @@ name: Build and Publish Docker
 on:
   push:
     branches:
-      - master
+      - main
     tags:
       - v1.*
       - v2.*
@@ -35,4 +35,4 @@ jobs:
         with:
           context: .
           push: true
-          tags: bigrocs/go-rocs:latest
+          tags: registry.cn-hongkong.aliyuncs.com/bigrocs/go-rocs:latest

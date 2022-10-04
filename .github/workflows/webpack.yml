@@ -30,7 +30,7 @@ jobs:
       -
         name: echo github.repository
         run: | 
-          echo ${{ github.repository }}
+          echo ${{ github }}
       -
         name: Login to ${{ env.REGISTRY }}
         uses: docker/login-action@v2
